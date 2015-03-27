@@ -1,0 +1,10 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public static Integer[] getDistinct(int[] input)
+{
+	Set<Integer> distinct = new HashSet<Integer>();
+	for ( Integer element : input)
+		distinct.add(element);
+	return distinct.toArray(new Integer[0]);
+}

@@ -1,0 +1,6 @@
+long startTime = System.currentTimeMillis();
+
+//TODO problem solution goes here
+
+long endTime = System.currentTimeMillis();
+System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
