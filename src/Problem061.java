@@ -37,12 +37,12 @@ public class Problem061
 		//n(5n-3)/2 < 10,000 --> n = 
 		//n(3n-2) < 10,000 --> n =
 		
-		ArrayList<Integer> triangle = new ArrayList<Integer>();  //96
-		ArrayList<Integer> square = new ArrayList<Integer>();	 //68
-		ArrayList<Integer> pentagonal = new ArrayList<Integer>();//56
-		ArrayList<Integer> hexagonal = new ArrayList<Integer>(); //48
-		ArrayList<Integer> heptagonal = new ArrayList<Integer>();//43
-		ArrayList<Integer> octagonal = new ArrayList<Integer>(); //40
+		ArrayList<Integer> triangle = new ArrayList<Integer>();  //96, 88 reduced
+		ArrayList<Integer> square = new ArrayList<Integer>();	 //68, 53 reduced
+		ArrayList<Integer> pentagonal = new ArrayList<Integer>();//56, 47 reduced
+		ArrayList<Integer> hexagonal = new ArrayList<Integer>(); //48, 44 reduced
+		ArrayList<Integer> heptagonal = new ArrayList<Integer>();//43, 40 reduced
+		ArrayList<Integer> octagonal = new ArrayList<Integer>(); //40, 30 reduced
 		
 		for ( int i = 1; i < 141; i++ )
 		{
@@ -61,12 +61,12 @@ public class Problem061
 			if ( bounds(oct) ) octagonal.add(oct);
 		}
 
-		System.out.println(triangle.size());
-		System.out.println(square.size());
-		System.out.println(pentagonal.size());
-		System.out.println(hexagonal.size());
-		System.out.println(heptagonal.size());
-		System.out.println(octagonal.size());
+//		System.out.println(triangle.size());
+//		System.out.println(square.size());
+//		System.out.println(pentagonal.size());
+//		System.out.println(hexagonal.size());
+//		System.out.println(heptagonal.size());
+//		System.out.println(octagonal.size());
 		
 		for ( int i = 0; i < triangle.size(); i++ )
 		{
