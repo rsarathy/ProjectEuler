@@ -13,6 +13,15 @@ public class Problem061A
 			System.out.print(list.get(i) + ", " );
 		System.out.println();
 	}
+	
+	public static void findCycle(int start)
+	{
+		//2016 ---> tr_34 = 20, nextB = 1
+		
+		int tr_34 = start % 100;
+		int nextB = tr_34 / 10;
+		
+	}
 	/**
 	 * @param args
 	 */
@@ -29,13 +38,18 @@ public class Problem061A
 		
 		for ( int i = 0; i <= 9; i++ )
 		{
-			ArrayList<Integer> bucket = new ArrayList<Integer>();
-			triangle.add(bucket);
-			square.add(bucket);
-			pentagon.add(bucket);
-			hexagon.add(bucket);
-			heptagon.add(bucket);
-			octagon.add(bucket);
+			ArrayList<Integer> tbucket = new ArrayList<Integer>();
+			ArrayList<Integer> sbucket = new ArrayList<Integer>();
+			ArrayList<Integer> pbucket = new ArrayList<Integer>();
+			ArrayList<Integer> hxbucket = new ArrayList<Integer>();
+			ArrayList<Integer> hepbucket = new ArrayList<Integer>();
+			ArrayList<Integer> obucket = new ArrayList<Integer>();
+			triangle.add(tbucket);
+			square.add(sbucket);
+			pentagon.add(pbucket);
+			hexagon.add(hxbucket);
+			heptagon.add(hepbucket);
+			octagon.add(obucket);
 		}
 		
 		for ( int i = 15; i < 141; i++ )
@@ -62,18 +76,36 @@ public class Problem061A
 			if ( bounds(oct) ) octagon.get(octB).add(oct);
 		}
 		
-		for ( int i = 0; i < triangle.size(); i++ )
+//		for ( int i = 0; i < triangle.size(); i++ )
+//		{
+//			for ( int j = 0; j < triangle.get(i).size(); j++ )
+//			{
+//				int tr_34 = triangle.get(i).get(j) % 100;
+//				int nextB = tr_34 / 10;
+//				
+//				for ( int k = 0; k < square.get(nextB).size(); k++ )
+//				{
+//					
+//				}
+//			}
+//		}
+		
+		print(triangle.get(2));
+		print(square.get(2));
+		System.out.println(triangle.get(2).size());
+		System.out.println(square.get(2).size());
+		
+		System.out.println();
+		
+		for ( int i = 1; i <= 9; i++ )
 		{
-			for ( int j = 0; j < triangle.get(i).size(); j++ )
-			{
-				int tr_34 = triangle.get(i).get(j) % 100;
-				int nextB = tr_34 / 10;
-				
-				for ( int k = 0; k < square.get(nextB).size(); k++ )
-				{
-					
-				}
-			}
+			System.out.print("tri(" + i + ") = " + triangle.get(i).size() + ", ");
+			System.out.print("sq(" + i + ") = "+ square.get(i).size() + ", ");
+			System.out.print("pent(" + i + ") = " + pentagon.get(i).size() + ", ");
+			System.out.print("hex(" + i + ") = " + hexagon.get(i).size() + ", ");
+			System.out.print("hept(" + i + ") = " + heptagon.get(i).size() + ", ");
+			System.out.print("oct(" + i + ") = " + octagon.get(i).size());
+			System.out.println();
 		}
 		
 		long endTime = System.currentTimeMillis();

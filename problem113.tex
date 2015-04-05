@@ -1,0 +1,13 @@
+Every number is either bouncy or not bouncy. Not bouncy numbers can be increasing, decreasing, or both increasing and decreasing (the final case occurring if a number contains a single flavor of digit). 
+
+Let N be the set of all natural numbers. Let B = Bouncy, I = Increasing, and D = Decreasing. N can be represented as $N = B + I\cup D$, or $N = B + I + D - I\cap D.$ We want the set of non-bouncy numbers, which is N-B, or $I + D - I\cap D.$ 
+
+The number of increasing numbers $\le10^n = \binom{10+n-1}{n} - 1.$
+The number of decreasing numbers $\le10^n = \binom{10+n}{n} - n.$
+The number of numbers in the intersection of increasing and decreasing numbers is $9n$, one for each positive digit per power of 10 (numbers that only contain one unique digit, eg. 11111 or 222). 
+
+Putting it together, the total number of non-bouncy numbers $\le10^n = \binom{10+n-1}{n} +\binom{10+n-1}{n} - 10n - 1.$
+
+In our case, $n = 100$ as we want to find the number of non-bouncy numbers $<10^{100}.$ There are $\binom{109}{100}  + \binom{110}{100} - 10\times100 - 1 = \binom{10+n-1}{n} = 51161058134251$ that are $\le 10^{100}.$
+
+However, as gogool itself is a non-bouncy number (a decreasing number), I ignominiously subtracted 1 to get a final answer of [b]51161058134250[/b].

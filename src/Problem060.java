@@ -24,7 +24,6 @@ public class Problem060
 		pSets.remove(0); //2 will generate evens
 		pSets.remove(1); //5 will generate _5 which is divisible by 5
 		
-		
 		long endTime = System.currentTimeMillis();
 		System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
 
