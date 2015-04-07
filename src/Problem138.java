@@ -5,6 +5,8 @@ public class Problem138
 {
 
 	/**
+	 * Each new L_n is given by F_(6n+3), where F_n is the nth Fibonacci number.
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args)
@@ -19,7 +21,7 @@ public class Problem138
 			System.out.println("L_" + n + " = " + L_k);
 			sumL = sumL.add(Numbers.fibonacci(k));
 		}
-		
+		sumL = sumL.divide(new BigInteger("2"));
 		System.out.println("Sum of first 12 special isoceles triangles: " + sumL);
 //		int limit = (int)Math.pow(10, 9);
 //
