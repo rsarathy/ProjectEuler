@@ -1,7 +1,5 @@
-
 public class Problem131
 {
-
 	/**
 	 * @param args
 	 */
@@ -9,19 +7,22 @@ public class Problem131
 	{
 		long startTime = System.currentTimeMillis();
 		
-		int[] primes = ESieve.generatePrimes(100);
-		for ( int i = 0; i < primes.length; i++ )
-			for ( int n = 2; n < 10000; n++ )
+		int pCt = 0, i = 1, checksum = 0;
+		while ( checksum < 1000000 )
+		{	
+			checksum = 3*i*i + 3*i + 1;
+			if ( checksum > 0 && Numbers.isPrime(checksum) )
 			{
-				long special = n*n*n + n*n*primes[i];
-				if ( Numbers.isCube(special) )
-				{
-					System.out.println(n+"^3 + " + n+"^2" + " * " + primes[i]);
-					continue;
-				}
+				long iCubed = i*i*i; 
+				System.out.println( i + "^3 + " + i + "^2 * " + checksum + 
+						" = " + i + "^2(" + iCubed + "+" + checksum + ") = "
+						+ i*i + "^3 * " + (i+1) + "^3");
+				pCt++;
 			}
+			i++;
+		}
 		
-		System.out.println(Math.cbrt(549890031616L));
+		System.out.println("Number of primes with special property ≤ 10,000,000: " + pCt);
 
 		long endTime = System.currentTimeMillis();
 		System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
