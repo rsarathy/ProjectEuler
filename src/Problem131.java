@@ -22,7 +22,7 @@ public class Problem131
 			i++;
 		}
 		
-		System.out.println("Number of primes with special property ≤ 10,000,000: " + pCt);
+		System.out.println("Number of primes with special property ≤ 1,000,000: " + pCt);
 
 		long endTime = System.currentTimeMillis();
 		System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
