@@ -1,56 +1,35 @@
-import java.math.BigInteger;
-
 public class Problem148
 {
-	public static String spacing(int n)
-	{
-		StringBuffer space = new StringBuffer();
-		for ( int i = 0; i < n; i++ )
-			space.append(' ');
-		return space.toString();
-	}
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args)
 	{
 		long startTime = System.currentTimeMillis();
-
-		BigInteger seven = new BigInteger("7");
-		BigInteger zero = BigInteger.ZERO;
-
-		int rows = 344;
-		int ct = 0;
-
-		BigInteger[][] triangle = new BigInteger[rows][rows];
-
-		for (int i = 0; i < rows; i++)
+		
+		long[] S = new long[8];
+		long[] T = new long[11];
+		T[0] = 0;
+		T[1] = 0;
+		for ( int i = 2; i < 11; i++ )
 		{
-			StringBuffer row = new StringBuffer();
-			for (int j = 0; j <= i; j++)
-			{
-				triangle[i][j] = Numbers.choose(i, j);
-				if (triangle[i][j].mod(seven).compareTo(zero) == 0)
-				{
-					row.append("0 ");
-					ct++;
-				}
-				else
-					row.append("1 ");
-			}
-			String s = spacing(rows-i-1);
-			String r = row.toString();
-			r = s + r;
-			System.out.println(r);
+			T[i] = (long)Math.pow(28,i);
+			System.out.println("T_" + i + " = " + T[i]);
 		}
-
-		int triSize = (rows * rows + rows) / 2;
-		System.out.println("\n" + (triSize - ct) + " / " 
-				+ triSize + " not divisible by 7.");
-
+		
+		S[7] = 21 * T[2] + 7 * 70;
+		S[6] = 21 * T[5] + 7 * S[7];
+		S[5] = T[6] + 2 * S[6];
+		S[4] = 6 * T[7] + 4 * S[5];
+		S[3] = 15 * T[8] + 6*S[4];
+		S[2] = 6 * T[9] + 4 * S[3];
+		S[1] = 6 * T[10] + 4 * S[2];
+		
+		System.out.println("Number of integers not divisble by 7 in the first" +
+				" 10^9 rows of Pascal's Triangle: " + S[1]);
+		
 		long endTime = System.currentTimeMillis();
-		System.out.println("The program took " + (endTime - startTime)
-				+ " ms to compile.");
+		System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
 	}
-
 }
