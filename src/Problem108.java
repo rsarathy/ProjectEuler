@@ -1,7 +1,7 @@
 public class Problem108
 {
 	static int big = (int)Math.pow(10, 8);
-	static int[] primes = ESieve.generatePrimes(100);
+	static int[] primes = ESieve.generatePrimes(10000);
 	
 	static int tau(long n)
 	{
@@ -46,21 +46,20 @@ public class Problem108
 	{
 		long startTime = System.currentTimeMillis();
 //
-//		int max = 0, maxN = 0;
-//		
-//		for ( int i = big - 10; i < big*10; i += 210 )
-//		{
-//			int sols = fastDiop(i);
-//			if ( sols > max )
-//			{
-//				maxN = i;
-//				max = sols;
-//			}
-//		}	
+		int max = 0, maxN = 0;
 		
-		long well = 6983776800L;
+		for ( int i = 210; i < 277200; i += 210 )
+		{
+			int sols = fastDiop(i);
+			if ( sols > 1000 )
+			{
+				maxN = i;
+				max = sols;
+				break;
+			}
+		}	
 		
-		System.out.println("n = " + well + " --> " + fastDiop(well) + " solutions");
+		System.out.println("n = " + maxN + " --> " + max + " solutions");
 
 		/**
 		 n = 9240 --> 284 solutions
