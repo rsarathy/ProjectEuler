@@ -1,5 +1,3 @@
-import java.math.BigInteger;
-
 public class Problem099
 {
 
@@ -13,37 +11,31 @@ public class Problem099
 		TextIO.readFile("p099_base_exp.txt");
 		
 		String[][] base_exp = new String[1000][2];
-		BigInteger[] pwrs = new BigInteger[1000];
-		int[] exp = new int[1000];
+		double[] pwrs = new double[1000];
+		double[] exp = new double[1000];
 		
-		for ( int i = 0; i < base_exp.length; i++ )
+		double max = 0D;
+		int maxIndex = 0;
+		
+		for ( int i = 0; i < 1000; i++ )
 		{
 			String numbers = TextIO.getln();
 			base_exp[i] = numbers.split(",");
-			pwrs[i] = new BigInteger(base_exp[i][0]); //bigInts = bases
-			exp[i] = Integer.parseInt(base_exp[i][1]);
-		}
-		
-		BigInteger max = new BigInteger("1");
-		int maxIndex = 0;
-		
-		for ( int i = 0; i < pwrs.length; i++ )
-			pwrs[i] = pwrs[i].pow(exp[i]);
-		
-		for ( int i = 0; i < pwrs.length; i++ )
-			if ( pwrs[i].compareTo(max) == 1 )
+			pwrs[i] = Double.parseDouble(base_exp[i][0]);
+			exp[i] = Double.parseDouble(base_exp[i][1]);
+			exp[i] /= 1000000; //work with simpler exponents
+			pwrs[i] = Math.pow(pwrs[i], exp[i]);
+			if ( pwrs[i] > max )
 			{
 				max = pwrs[i];
 				maxIndex = i;
-				System.out.println("maxIndex = " + maxIndex);
 			}
+		}
 		
-		System.out.println(maxIndex);
-		
+		System.out.println("The largest power is at line number " + (maxIndex+1) + ".");
 
 		long endTime = System.currentTimeMillis();
 		System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
 
 	}
-
 }
