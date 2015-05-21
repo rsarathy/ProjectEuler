@@ -13,8 +13,7 @@ public class Problem081
 			
 		for ( int m = 1; m < row; m++ )
 			for ( int n = 1; n < col; n++ )
-				matrix[m][n] += ((matrix[m-1][n] < matrix[m][n-1])
-						? matrix[m-1][n] : matrix[m][n-1]);
+				matrix[m][n] += Math.min(matrix[m-1][n], matrix[m][n-1]);
 		
 		return matrix[row-1][col-1];
 	}
@@ -27,21 +26,18 @@ public class Problem081
 		long startTime = System.currentTimeMillis();
 
 		TextIO.readFile("p081_matrix.txt");
+
+		int[][] matrix = new int[80][80];
 		
-		final int eighty = 80;
-		
-		String[][] square = new String[eighty][eighty];
-		int[][] matrix = new int[eighty][eighty];
-		
-		for ( int i = 0; i < square.length; i++ )
+		for ( int i = 0; i < 80; i++ )
 		{
-			String line = TextIO.getln();
-			square[i] = line.split(",");
+			String[] row = TextIO.getln().split(",");
+			for ( int j = 0; j < 80; j++ )
+				matrix[i][j] = Integer.parseInt(row[j]);
 		}
 		
-		for ( int i = 0; i < square.length; i++ )
-			for ( int j = 0; j < square[i].length; j++ )
-				matrix[i][j] = Integer.parseInt(square[i][j]);
+		System.out.println("matrix[2][3]: " + matrix[2][3]);
+		System.out.println("matrix[3][2]: " + matrix[3][2]);
 		
 		System.out.println(minSum(matrix));
 //		
