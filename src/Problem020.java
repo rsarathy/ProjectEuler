@@ -1,5 +1,4 @@
-import java.util.Scanner;
-
+import java.math.BigInteger;
 
 public class Problem020
 {
@@ -11,41 +10,19 @@ public class Problem020
 	 */
 	public static void main(String[] args)
 	{
-		 int sum = 0;
-         System.out.println("Enter number:");
-         Scanner input = new Scanner(System.in);
-         int n = input.nextInt();
-         int t = n;
-         while (n > 0)
-         {
-        	 int p = n % 10;
-             sum += p;
-             n /= 10;
-         }
-         System.out.println("sum of the digits in " + t + " is " + sum);
+		long startTime = System.currentTimeMillis();
+		int sum = 0;
 
+		BigInteger fac = new BigInteger("1");
+		for (int i = 2; i <= 100; i++)
+			fac = fac.multiply(new BigInteger(i + ""));
+		String s = fac.toString();
+		for (int j = 0; j < s.length(); j++)
+			sum += Character.getNumericValue(s.charAt(j));
+
+		System.out.println("Sum of digits of 100! = " + sum);
+
+		long endTime = System.currentTimeMillis();
+		System.out.println("The program took " + (endTime - startTime) + " ms to compile.");
 	}
-
 }
-
-//import java.math.BigInteger;
-//public class euler_20
-//{
-//  public static void main(String[] args)
-//  {
-//    BigInteger num = new BigInteger("1");
-//    for(int i = 100; i>1; i--)
-//    {
-//      num = num.multiply(new BigInteger(String.valueOf(i)));
-//    }
-//    System.out.println(num);
-//    String stringOfNum = num.toString();
-//    int sum = 0;
-//    System.out.println(stringOfNum);
-//    for(int i = 0; i<stringOfNum.length(); i++)
-//    {
-//      sum += Character.getNumericValue(stringOfNum.charAt(i));
-//    }
-//    System.out.println(sum);
-//  }
-//}
