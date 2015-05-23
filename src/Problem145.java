@@ -25,14 +25,10 @@ public class Problem145
 		long startTime = System.currentTimeMillis();
 
 		int ct = 0;
-		for ( int i = 1; i <= 1000000000; i++ )
-		{
-			if ( i % 100000000 == 0 )
-				System.out.println(i/100000000 + "0% complete.");
+		for ( int i = 1; i <= 1000000000; i += 2 ) //count odds and double the total at the end
 			if ( isReversible(i) )
 				ct++;
-		}
-		System.out.println(ct);
+		System.out.println(2*ct); //117,071 ms
 				
 		long endTime = System.currentTimeMillis();
 		System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
