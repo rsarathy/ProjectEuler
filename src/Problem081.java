@@ -36,27 +36,7 @@ public class Problem081
 				matrix[i][j] = Integer.parseInt(row[j]);
 		}
 		
-		System.out.println("matrix[2][3]: " + matrix[2][3]);
-		System.out.println("matrix[3][2]: " + matrix[3][2]);
-		
 		System.out.println(minSum(matrix));
-//		
-//		TextIO.readFile("matrix.txt");
-//		
-//		String[][] sq = new String[5][5];
-//		int[][] mat = new int[5][5];
-//		
-//		for ( int i = 0; i < sq.length; i++ )
-//		{
-//			String line = TextIO.getln();
-//			sq[i] = line.split(" ");
-//		}
-//		
-//		for ( int i = 0; i < sq.length; i++ )
-//			for ( int j = 0; j < sq[i].length; j++ )
-//				mat[i][j] = Integer.parseInt(sq[i][j]);
-//		
-//		System.out.println(minSum(mat));
 
 		long endTime = System.currentTimeMillis();
 		System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
