@@ -9,28 +9,24 @@ public class Problem123
 	{
 		long startTime = System.currentTimeMillis();
 
-		int[] primes = ESieve.generatePrimes(1000);
+		int[] primes = ESieve.generatePrimes(250000);
 		
-		long maxMod = 0;
-		long maxN = 0;
-		
-		for ( int i = 0; i < primes.length; i++ )
+		long r_max = 0;
+		int maxN = 0;
+		for ( int i = 7036; i < primes.length; i += 2 )
 		{
-			long a = primes[i] - 1;
-			long b = primes[i] + 1;
-			long m = primes[i] * primes[i];
-			
-			long mod = (long)(Math.pow(a,i+1) + Math.pow(b, i+1)) % m;
-			
-			if ( mod > maxMod )
+			long p = primes[i];
+			long r = 2*(i+1)*p;
+			if ( r > 10000000000L )
 			{
+				r_max = r;
 				maxN = i + 1;
-				maxMod = mod;
+				break;
 			}
 		}
 		
-		System.out.println("p_n = " + primes[(int)maxN-1] + ", " 
-		+ "n = " + maxN + ", remainder = " + maxMod);
+		System.out.println("p_n = " + primes[maxN-1] + ", " 
+		+ "n = " + maxN + ", remainder = " + r_max);
 		
 		long endTime = System.currentTimeMillis();
 		System.out.println("The program took " + (endTime - startTime) + " ms to compile."); 
